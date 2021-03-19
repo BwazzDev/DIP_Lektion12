@@ -40,8 +40,8 @@ hr {
 
 .chatContainer {
     display: grid;
-    grid-template-columns: 15rem minmax(20rem, 40vh) minmax(20rem, 40vh);
-    grid-template-rows: 4rem 70vh 5rem;
+    grid-template-columns: 15rem auto auto;
+    grid-template-rows: 4rem auto 5rem;
     gap: 1rem;
     margin: auto;
     width: 57rem;
