@@ -1,0 +1,290 @@
+:root {
+    --main0: #00b7ff;
+    --main1: #4dccff;
+    --main2: #7ab8cc;
+    --sub0: #006e99;
+    --sub1: #1f7699;
+    --sub2: #3d7f99;
+    --comp0: #1abeff;
+    --el: #17abe6;
+    --elHighlight: #80dfff;
+    --elActive: #b3ecff;
+    --ow: #eeeeee;
+    --chatText: #004e73;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    user-select: none;
+    background: linear-gradient(to bottom right, var(--sub0), var(--main1));
+    color: var(--ow);
+
+}
+
+hr {
+    border: none;
+    background-color: #5f5f5f;
+}
+
+.chatContainer {
+    display: grid;
+    grid-template-columns: 15rem minmax(20rem, 40vh) minmax(20rem, 40vh);
+    grid-template-rows: 4rem 70vh 5rem;
+    gap: 1rem;
+    margin: auto;
+    width: 57rem;
+    padding: 2rem 0;
+    height: 100vh;
+}
+
+.chatTitle {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 3rem;
+    font-weight: bold;
+    /*background-color: #dba5a5;*/
+}
+/* Room Components */
+.roomList {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    /*background-color: #8ea0ea;*/
+}
+
+.roomList .roomListTitle {
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: center;
+}
+
+.roomList .staticRoomList {
+
+}
+
+.roomList .dynamicRoomList {
+
+}
+
+.roomList .roomElement {
+    display: flex;
+    background-color: var(--el);
+    margin: .4rem;
+    padding: .2rem;
+    justify-content: center;
+    text-align: center;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.roomList .roomElement:hover {
+    background-color: var(--elHighlight);
+}
+
+.roomElementActive {
+    background-color: var(--elActive) !important;
+    color: var(--chatText) ;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Chat components */
+.chatList {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*background-color: rgba(255, 255, 255, 0.2);*/
+    border-radius: 1rem;
+    /*box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);*/
+}
+
+.chatMessage {
+    position: relative;
+    background-color: var(--main0);
+    color: var(--chatText);
+    padding: .8rem 1.2rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    /*box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);*/
+}
+
+.chatMessage:nth-child(odd) {
+    /*background-color: #c6f2b6;*/
+}
+
+.chatMessage .headerTextNavn {
+    width: 10rem;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.chatMessage .headerTextRum {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 3rem;
+    color: rgba(111, 46, 157, 0.2);
+    transform: rotate(25deg);
+
+}
+
+.chatMessage .contentText {
+    font-family: 'Roboto', sans-serif;
+}
+
+.chatMessage .deleteButton {
+    position: absolute;
+    right: 1.2rem;
+    top: .2rem;
+    color: #ffffff;
+    cursor: pointer;
+    visibility: hidden;
+    z-index: 1;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.chatMessage:hover .deleteButton {
+    visibility: visible;
+}
+
+/* Input elements*/
+.sendContainer {
+    position: relative;
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+}
+
+.chatUsername {
+    position: absolute;
+    top: -12rem;
+    background: var(--comp0);
+    width: 13rem;
+    height: 12rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 1rem 1rem 0 0;
+    z-index: 0;
+    text-align: center;
+}
+
+.chatUsername input {
+    font-family: 'Roboto', sans-serif;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--elHighlight);
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: .2rem;
+    margin-bottom: 1rem;
+}
+
+.chatUsername input:focus {
+    border: none;
+    outline: none;
+    background: var(--elActive);
+}
+
+.chatUsername select {
+    font-family: 'Roboto', sans-serif;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--elHighlight);
+    font-size: 1.3rem;
+    margin-top: .2rem;
+}
+
+.chatUsername select:focus {
+    border: none;
+    outline: none;
+    background: var(--elActive);
+}
+
+.chatUsername .usernameInput {
+    width: 10rem;
+}
+
+.chatUsername .label {
+    color: white;
+}
+
+
+
+.sendInput {
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+    padding: .5rem 2rem;
+    width: 70%;
+    border: none;
+    border-radius: 1rem 0 0 1rem;
+    background-color: var(--elHighlight);
+    font-size: 1.6rem;
+}
+
+.sendInput:active {
+    border: none;
+}
+
+.sendInput:focus {
+    border: none;
+    outline: none;
+    background: var(--elActive);
+}
+
+
+.sendBtn {
+    display: flex;
+    background-color: var(--el);
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 0 4rem 4rem 0;
+    width: 30%;
+}
+
+.sendBtn:hover {
+    background: var(--elActive);
+    color: var(--chatText);
+}
+
+
+/* Scrollbar */
+
+.chatList::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    border-radius: 10px;
+    /*background-color: #F5F5F5;*/
+}
+
+.chatList::-webkit-scrollbar {
+    width: 12px;
+    /*background-color: #F5F5F5;*/
+}
+
+.chatList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+    background-color: var(--elHighlight);
+}
